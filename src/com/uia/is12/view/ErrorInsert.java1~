@@ -6,39 +6,32 @@
 
 package com.uia.is12.view;
 
-import com.uia.is12.business.TareaBusiness; 
-import java.awt.event.ActionEvent; 
-import javax.swing.JButton; 
-import javax.swing.JInternalFrame; 
-import javax.swing.JLabel; 
-import javax.swing.JScrollPane; 
-import javax.swing.JTable; 
-import javax.swing.JTextField;
+import com.uia.is12.business.ErrorBusiness;
 import com.uia.is12.connection.MySQLDB;
-import com.uia.is12.domain.Tarea;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import com.uia.is12.domain.Error;
 
 /**
  *
  * @author Gabriel
  */
-public class TareaInsert extends javax.swing.JInternalFrame {
+public class ErrorInsert extends javax.swing.JInternalFrame {
 private MySQLDB mysqlDB;
     /**
      * Creates new form TareaInsert
      */
-    public TareaInsert() {
+    public ErrorInsert() {
         initComponents();
         disable();
         limpiar();
-        jtproyectos.setEnabled(false);
-        jttareas.setEnabled(false);
         btadd.setEnabled(false);
-        try {
+        jterror.setEnabled(false);
+        jttareas.setEnabled(false);
+         try {
             tabla();
         } catch (SQLException ex) {
             Logger.getLogger(TareaInsert.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,48 +44,21 @@ private MySQLDB mysqlDB;
     }
     
     public void disable() {
-        txcodproyecto.setEditable(false);
-        txfechac.setEditable(false);
-        txnombret.setEditable(false);
-    }
-    
-    public void enable(){
-        txcodproyecto.setEditable(true);
-        txfechac.setEditable(true);
-        txnombret.setEditable(true);
-    }
-    
-    public void limpiar(){
-        txcodproyecto.setText("");
-        txfechac.setText("");
-        txnombret.setText("");
-    }
-    
-    public void tabla() throws SQLException{
-        mysqlDB = new MySQLDB();
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Codigo proyecto");
-        model.addColumn("Codigo Usuario");
-        model.addColumn("Nombre Proyecto");
-        model.addColumn("Fecha Creacion");
-        
-        
-        
-        String sql = "select * from proyectos";
-        ResultSet res = mysqlDB.executeQuery(sql);
-        String[]fila = new String[4];
-        while (res.next()){
-            fila[0]= res.getString("CodigoProyecto");
-            fila[1]= res.getString("CodigoUsuario");
-            fila[2]= res.getString("NombreProyecto");
-            fila[3]= res.getString("FechaCreacion");
-            model.addRow(fila);
+            txcodigot.setEditable(false);
+            txdescrerror.setEditable(false);
+            txfechac.setEditable(false);
         }
-        jtproyectos.setModel(model);
-        limpiar();
-        
+    public void enable() {
+            txcodigot.setEditable(true);
+            txdescrerror.setEditable(true);
+            txfechac.setEditable(true);
+        }
+    public void limpiar() {
+        txcodigot.setText("");
+        txdescrerror.setText("");
+        txfechac.setText("");
     }
-    
+
     public void tabla2() throws SQLException{
         mysqlDB = new MySQLDB();
         DefaultTableModel model = new DefaultTableModel();
@@ -108,13 +74,36 @@ private MySQLDB mysqlDB;
             fila[0]= res.getString("CodigoTarea");
             fila[1]= res.getString("DescripcionTarea");
             fila[2]= res.getString("FechaCreacion");
-            fila[3]= res.getString("CodigoProyecto");
+            fila[3] = res.getString("CodigoProyecto");
             model.addRow(fila);
         }
         jttareas.setModel(model);
         limpiar();
     }
 
+    public void tabla() throws SQLException {
+        mysqlDB = new MySQLDB();
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Codigo Error");
+        model.addColumn("Descripcion Error");
+        model.addColumn("Fecha Creacion");
+        model.addColumn("Codigo Tarea");
+    
+        String sql = "select * from errores";
+        ResultSet res = mysqlDB.executeQuery(sql);
+        String[]fila = new String[4];
+        while (res.next()){
+            fila[0]= res.getString("CodigoError");
+            fila[1]= res.getString("DescripcionError");
+            fila[2]= res.getString("FechaCreacion");
+            fila[3]= res.getString("CodigoTarea");
+            model.addRow(fila);
+        }
+        jterror.setModel(model);
+        limpiar();
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,29 +114,28 @@ private MySQLDB mysqlDB;
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txnombret = new javax.swing.JTextField();
+        txdescrerror = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txcodproyecto = new javax.swing.JTextField();
+        txcodigot = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txfechac = new javax.swing.JTextField();
         btnew = new javax.swing.JButton();
         btadd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jttareas = new javax.swing.JTable();
+        jterror = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jtproyectos = new javax.swing.JTable();
+        jttareas = new javax.swing.JTable();
         lbus = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
 
         setClosable(true);
-        setTitle("Agregar Tareas");
+        setTitle("Agregar Errores");
         setPreferredSize(new java.awt.Dimension(700, 410));
 
-        jLabel1.setText("Descrip. de Tarea:");
-
-        jLabel2.setText("Codigo de Proyecto:");
+        jLabel2.setText("Codigo de Tarea:");
 
         jLabel3.setText("Fecha de Creación:");
 
@@ -165,6 +153,21 @@ private MySQLDB mysqlDB;
             }
         });
 
+        jterror.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Codigo Error", "Nombre Error", "Codigo de Tarea", "Fecha Creacion"
+            }
+        ));
+        jScrollPane1.setViewportView(jterror);
+
+        jLabel4.setText("Descrip. Error:");
+
         jttareas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -176,24 +179,11 @@ private MySQLDB mysqlDB;
                 "Codigo Tarea", "Nombre Tarea", "Codigo Proyecto", "Fecha Creacion", "Errores"
             }
         ));
-        jScrollPane1.setViewportView(jttareas);
-
-        jtproyectos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo Proyecto", "Nombre Proyecto", "Usuario", "Fecha Creacion", "Codigo Tareas"
-            }
-        ));
-        jScrollPane3.setViewportView(jtproyectos);
+        jScrollPane3.setViewportView(jttareas);
 
         lbus.setText("nombreu");
 
-        jLabel6.setText("Conectado:");
+        jLabel5.setText("Conectado:");
 
         jLabel7.setText("Role:");
 
@@ -208,48 +198,47 @@ private MySQLDB mysqlDB;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txfechac, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel1)
-                                                .addGap(21, 21, 21)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel4))
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txcodproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txcodigot, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(2, 2, 2)
+                                                        .addComponent(txfechac, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(30, 30, 30)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(btnew, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(btadd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(txnombret, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(txdescrerror, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(lbtipo))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(15, 15, 15)
-                                        .addComponent(lbus)))
-                                .addGap(58, 58, 58))))))
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(50, 50, 50)
+                        .addComponent(lbtipo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(15, 15, 15)
+                        .addComponent(lbus)))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,19 +248,20 @@ private MySQLDB mysqlDB;
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txnombret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txdescrerror, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txcodproyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txcodigot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txfechac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
                             .addComponent(lbus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,11 +271,11 @@ private MySQLDB mysqlDB;
                         .addComponent(btnew, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(btadd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -297,17 +287,16 @@ private MySQLDB mysqlDB;
     }//GEN-LAST:event_btnewActionPerformed
 
     private void btaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btaddActionPerformed
-        TareaBusiness tareaBL = new TareaBusiness();
-        Tarea tarea = new Tarea();
-        tarea.setCodigoProyecto(Integer.parseInt(txcodproyecto.getText()));
-        tarea.setNombreTarea(txnombret.getText());
-        tarea.setFechaCreacion(txfechac.getText());
-        try {
-            tareaBL.add(tarea);
-        } catch (Exception ex) {
-            Logger.getLogger(UsuarioInsert.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        limpiar();
+        ErrorBusiness errorBl = new ErrorBusiness();
+        Error error = new Error();
+        error.setNombreError(txdescrerror.getText());
+        error.setCodigoTarea(Integer.parseInt(txcodigot.getText()));
+        error.setFechaCreacion(txfechac.getText());
+    try {
+        errorBl.add(error);
+    } catch (Exception ex) {
+        Logger.getLogger(ErrorInsert.class.getName()).log(Level.SEVERE, null, ex);
+    }
     try {
         tabla2();
     } catch (SQLException ex) {
@@ -319,6 +308,8 @@ private MySQLDB mysqlDB;
         Logger.getLogger(TareaInsert.class.getName()).log(Level.SEVERE, null, ex);
     }
         disable();
+        btadd.setEnabled(false);
+        limpiar();
     }//GEN-LAST:event_btaddActionPerformed
 
 
@@ -328,16 +319,17 @@ private MySQLDB mysqlDB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jtproyectos;
+    private javax.swing.JTable jterror;
     private javax.swing.JTable jttareas;
     public static javax.swing.JLabel lbtipo;
     public static javax.swing.JLabel lbus;
-    private javax.swing.JTextField txcodproyecto;
+    private javax.swing.JTextField txcodigot;
+    private javax.swing.JTextField txdescrerror;
     private javax.swing.JTextField txfechac;
-    private javax.swing.JTextField txnombret;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,6 +67,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(750, 500));
 
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 204), null));
         jDesktopPane1.setToolTipText("QA TRACKER");
@@ -105,7 +106,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
 
         jMenu1.setText("Proyectos");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295265_Increase.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295265_Increase.png")); // NOI18N
         jMenuItem1.setText("Insertar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +115,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295375_Modify.png"))); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295375_Modify.png")); // NOI18N
         jMenuItem3.setText("Modificar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +124,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295425_cross.png"))); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295425_cross.png")); // NOI18N
         jMenuItem4.setText("Eliminar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +133,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295472_onebit_02.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295472_onebit_02.png")); // NOI18N
         jMenuItem2.setText("Consultas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +146,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
 
         jMenu2.setText("Tareas");
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295265_Increase.png"))); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295265_Increase.png")); // NOI18N
         jMenuItem5.setText("Insertar");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +155,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295375_Modify.png"))); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295375_Modify.png")); // NOI18N
         jMenuItem6.setText("Modificar");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +164,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295425_cross.png"))); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295425_cross.png")); // NOI18N
         jMenuItem7.setText("Eliminar");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +173,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem7);
 
-        jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295472_onebit_02.png"))); // NOI18N
+        jMenuItem15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295472_onebit_02.png")); // NOI18N
         jMenuItem15.setText("Consultas");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +186,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
 
         jMenu3.setText("Errores");
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295265_Increase.png"))); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295265_Increase.png")); // NOI18N
         jMenuItem8.setText("Insertar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +195,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem8);
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295375_Modify.png"))); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295375_Modify.png")); // NOI18N
         jMenuItem9.setText("Modificar");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +204,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem9);
 
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295425_cross.png"))); // NOI18N
+        jMenuItem10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295425_cross.png")); // NOI18N
         jMenuItem10.setText("Eliminar");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +217,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
 
         jMenu4.setText("Usuarios");
 
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295265_Increase.png"))); // NOI18N
+        jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295265_Increase.png")); // NOI18N
         jMenuItem11.setText("Insertar");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +226,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem11);
 
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295375_Modify.png"))); // NOI18N
+        jMenuItem12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295375_Modify.png")); // NOI18N
         jMenuItem12.setText("Modificar");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +235,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem12);
 
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295425_cross.png"))); // NOI18N
+        jMenuItem13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295425_cross.png")); // NOI18N
         jMenuItem13.setText("Eliminar");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +248,7 @@ public class ProyectoPrograView extends javax.swing.JFrame {
 
         jMenu5.setText("Salir");
 
-        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/1397295768_address_book_close.png"))); // NOI18N
+        jMenuItem14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\iconos\\1397295768_address_book_close.png")); // NOI18N
         jMenuItem14.setText("Cerrar");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

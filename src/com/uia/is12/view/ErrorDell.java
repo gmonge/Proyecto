@@ -6,7 +6,14 @@
 
 package com.uia.is12.view;
 
-import com.uia.is12.business.ErrorBusiness;
+import com.uia.is12.business.ErrorBusiness; 
+import java.awt.event.ActionEvent; 
+import javax.swing.JButton; 
+import javax.swing.JInternalFrame; 
+import javax.swing.JLabel; 
+import javax.swing.JScrollPane; 
+import javax.swing.JTable; 
+import javax.swing.JTextField;
 import com.uia.is12.connection.MySQLDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
