@@ -6,14 +6,7 @@
 
 package com.uia.is12.view;
 
-import com.uia.is12.business.UsuarioBusiness; 
-import java.awt.event.ActionEvent; 
-import javax.swing.JButton; 
-import javax.swing.JInternalFrame; 
-import javax.swing.JLabel; 
-import javax.swing.JScrollPane; 
-import javax.swing.JTable; 
-import javax.swing.JTextField;
+import com.uia.is12.business.UsuarioBusiness;
 import com.uia.is12.domain.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
