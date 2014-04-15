@@ -54,7 +54,7 @@ public static String tipo;
                 pro.setLocationRelativeTo(null);
                 pro.setTitle("QA TRACKER");
                 pro.show();
-                pro.pack();
+                //pro.pack();
                 ProyectoInsert proy = new ProyectoInsert();
                 proy.lbusu.setText(usuario);
                 

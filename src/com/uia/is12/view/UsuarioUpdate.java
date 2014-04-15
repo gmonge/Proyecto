@@ -36,6 +36,7 @@ private MySQLDB mysqlDB;
         disable();
         limpiar();
         jtusuariosupdate.setEnabled(false);
+        btupdate.setEnabled(false);
         try {
             tabla();
         } catch (SQLException ex) {
@@ -45,20 +46,26 @@ private MySQLDB mysqlDB;
     
     public void disable() {
         txnombreusuario.setEditable(false);
-        txcontraseña.setEditable(false);
+        txtipousuario.setEditable(false);
         txcodigousuario.setEditable(false);
+        txcontraseña1.setEditable(false);
+        txtipousuario.setEditable(false);
     }
 
     public void enable() {
-        txcontraseña.setEditable(true);
+        txtipousuario.setEditable(true);
         txnombreusuario.setEditable(true);
         txcodigousuario.setEditable(true);
+        txcontraseña1.setEditable(true);
+        txtipousuario.setEditable(true);
     }
 
     public void limpiar() {
-        txcontraseña.setText("");
+        txtipousuario.setText("");
         txnombreusuario.setText("");
         txcodigousuario.setText("");
+        txcontraseña1.setText("");
+        txtipousuario.setText("");
     }
     
     public void tabla() throws SQLException{
@@ -70,7 +77,7 @@ private MySQLDB mysqlDB;
         
         String sql = "select * from usuarios";
         ResultSet res = mysqlDB.executeQuery(sql);
-        String[]fila = new String[2];
+        String[]fila = new String[3];
         while (res.next()){
             fila[0]= res.getString("CodigoUsuario");
             fila[1]= res.getString("NombreUsuario");
@@ -94,8 +101,8 @@ private MySQLDB mysqlDB;
 
         jLabel1 = new javax.swing.JLabel();
         txnombreusuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txcontraseña = new javax.swing.JTextField();
+        txtipo = new javax.swing.JLabel();
+        txtipousuario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtusuariosupdate = new javax.swing.JTable();
         btupdate = new javax.swing.JButton();
@@ -106,6 +113,8 @@ private MySQLDB mysqlDB;
         lbus = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbtipo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txcontraseña1 = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Modificar Usuarios");
@@ -113,27 +122,27 @@ private MySQLDB mysqlDB;
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre de Usuario:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 92, -1, -1));
-        getContentPane().add(txnombreusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 89, 197, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        getContentPane().add(txnombreusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 197, -1));
 
-        jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 129, -1, 18));
-        getContentPane().add(txcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 128, 197, -1));
+        txtipo.setText("Tipo de Usuario:");
+        getContentPane().add(txtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, 18));
+        getContentPane().add(txtipousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 197, -1));
 
         jtusuariosupdate.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Codigo Usuario", "Nombre Usuario"
+                "Codigo Usuario", "Nombre Usuario", "Tipo Usuario"
             }
         ));
         jScrollPane1.setViewportView(jtusuariosupdate);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 163, 670, 96));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 163, 660, 96));
 
         btupdate.setText("UPDATE");
         btupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -152,8 +161,8 @@ private MySQLDB mysqlDB;
         getContentPane().add(btnewupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 59, 80, 30));
 
         jLabel2.setText("Codigo Usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 52, -1, -1));
-        getContentPane().add(txcodigousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 49, 197, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        getContentPane().add(txcodigousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 197, -1));
 
         jLabel6.setText("Conectado:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 13, -1, -1));
@@ -167,11 +176,16 @@ private MySQLDB mysqlDB;
         lbtipo.setText("jLabel2");
         getContentPane().add(lbtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 36, -1, -1));
 
+        jLabel4.setText("Contraseña:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 18));
+        getContentPane().add(txcontraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 197, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnewupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnewupdateActionPerformed
        enable();
+       btupdate.setEnabled(true);
     }//GEN-LAST:event_btnewupdateActionPerformed
 
     private void btupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btupdateActionPerformed
@@ -179,7 +193,8 @@ private MySQLDB mysqlDB;
         Usuario usuario = new Usuario();
         usuario.setCodigoUsuario(Integer.parseInt(txcodigousuario.getText()));
         usuario.setNombreUsuario(txnombreusuario.getText());
-        usuario.setConstraseña(txcontraseña.getText());
+        usuario.setConstraseña(txcontraseña1.getText());
+        usuario.setTipo(txtipousuario.getText());
         try {
             usuarioBLD.update(usuario);
         } catch (Exception ex) {
@@ -200,7 +215,7 @@ private MySQLDB mysqlDB;
     private javax.swing.JButton btupdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -208,7 +223,9 @@ private MySQLDB mysqlDB;
     public static javax.swing.JLabel lbtipo;
     public static javax.swing.JLabel lbus;
     private javax.swing.JTextField txcodigousuario;
-    private javax.swing.JTextField txcontraseña;
+    private javax.swing.JTextField txcontraseña1;
     private javax.swing.JTextField txnombreusuario;
+    private javax.swing.JLabel txtipo;
+    private javax.swing.JTextField txtipousuario;
     // End of variables declaration//GEN-END:variables
 }
