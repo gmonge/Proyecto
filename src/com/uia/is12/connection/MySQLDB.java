@@ -18,9 +18,9 @@ import java.sql.Statement;
  * @author Gabriel
  */
 public class MySQLDB {
-    private final String DB_URL = "jdbc:mysql://localhost:3307/proyecto";
-    private final String USER = "gabe";
-    private final String PASS = "cesa";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/proyecto_progra2";
+    private final String USER = "root";
+    private final String PASS = "b20g11d91";
     private Connection con = null;
     private CallableStatement cstmt;
     private Statement stmt;
