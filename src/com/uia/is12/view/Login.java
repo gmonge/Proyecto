@@ -82,14 +82,22 @@ public static String tipo;
         btaceptar = new javax.swing.JButton();
         btcancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLIconoLogin = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(500, 300));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Usuario:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel2.setText("Contraseña:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        getContentPane().add(txcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 134, -1));
+        getContentPane().add(txnombreusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 134, -1));
 
         btaceptar.setText("Aceptar");
         btaceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +105,7 @@ public static String tipo;
                 btaceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(btaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 35));
 
         btcancel.setText("Cancelar");
         btcancel.addActionListener(new java.awt.event.ActionListener() {
@@ -104,55 +113,26 @@ public static String tipo;
                 btcancelActionPerformed(evt);
             }
         });
+        getContentPane().add(btcancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 35));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 11, 237, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Downloads\\httpzcoolcomcnpicpng4008icons_contained_005png.png")); // NOI18N
+        jLIconoLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLIconoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/images.jpg"))); // NOI18N
+        jLIconoLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        getContentPane().add(jLIconoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 180, 200));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(btaceptar)
-                        .addGap(42, 42, 42)
-                        .addComponent(btcancel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txcontraseña)
-                            .addComponent(txnombreusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txnombreusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btcancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
-                .addContainerGap(31, Short.MAX_VALUE))
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 280));
 
         pack();
         setLocationRelativeTo(null);
@@ -231,6 +211,8 @@ public static String tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btaceptar;
     private javax.swing.JButton btcancel;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLIconoLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
