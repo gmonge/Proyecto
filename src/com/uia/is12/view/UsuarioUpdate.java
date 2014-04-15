@@ -66,6 +66,7 @@ private MySQLDB mysqlDB;
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Codigo Usuario");
         model.addColumn("Nombre Usuario");
+        model.addColumn("Tipo Usuario");
         
         String sql = "select * from usuarios";
         ResultSet res = mysqlDB.executeQuery(sql);
@@ -73,6 +74,7 @@ private MySQLDB mysqlDB;
         while (res.next()){
             fila[0]= res.getString("CodigoUsuario");
             fila[1]= res.getString("NombreUsuario");
+            fila[2]= res.getString("TipoUsuario");
             
             model.addRow(fila);
         }
