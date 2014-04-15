@@ -43,7 +43,7 @@ public class UsuarioDAO {
     
     public void update(Usuario usuario)throws SQLException{
         mysqlDB = new MySQLDB();
-        String sql = "update usuarios set NombreUsuario='"+usuario.getNombreUsuario()+"', Contraseña='"+usuario.getConstraseña()+"','"+usuario.getTipo()+"' where CodigoUsuario="+usuario.getCodigoUsuario();
+        String sql = "update usuarios set NombreUsuario='"+usuario.getNombreUsuario()+"', Contraseña='"+usuario.getConstraseña()+"',TipoUsuario='"+usuario.getTipo()+"' where CodigoUsuario="+usuario.getCodigoUsuario();
         mysqlDB.execute(sql);
         mysqlDB.closeExecute();
         
